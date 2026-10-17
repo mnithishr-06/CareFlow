@@ -8,11 +8,12 @@ Notes:
 from typing import List
 import pandas as pd
 
-# Always require a case identifier and patient identifier. Event/timestamp column
+# Always require case identifier, patient identifier, and department. Event/timestamp column
 # names are resolved to canonical names below to accept either variant.
 REQUIRED_COLUMNS: List[str] = [
     "case_id",
     "patient_id",
+    "department",
 ]
 
 # canonical column aliases we accept
