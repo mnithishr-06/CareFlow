@@ -1,0 +1,7 @@
+﻿"source","target","patient_count","mean_waiting_hours"
+"Emergency_Admission","Triage_Assessment","500","0.547966666666666"
+"Triage_Assessment","Diagnostic_Lab_Orders","500","1.5756"
+"Diagnostic_Lab_Orders","Physician_Consultation","500","3.1679"
+"Physician_Consultation","Treatment_or_Surgery","500","2.16273333333333"
+"Treatment_or_Surgery","Inpatient_Ward_Transfer","500","6.45323333333333"
+"Inpatient_Ward_Transfer","Discharge","500","13.6512333333333"
