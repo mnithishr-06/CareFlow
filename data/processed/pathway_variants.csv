@@ -1,0 +1,2 @@
+﻿"variant_id","pathway","patient_count","patient_percentage","is_standard_happy_path","standard_happy_path_adherence_percentage"
+"V001","Emergency_Admission -> Triage_Assessment -> Diagnostic_Lab_Orders -> Physician_Consultation -> Treatment_or_Surgery -> Inpatient_Ward_Transfer -> Discharge","500","100","True","100"
