@@ -5,6 +5,7 @@ Writes to data/raw/clinical_events.csv (relative to repo root).
 import csv
 import random
 from datetime import datetime, timedelta
+from pathlib import Path
 
 RANDOM_SEED = 42
 NUM_PATIENTS = 500
@@ -49,12 +50,16 @@ def generate_patient_events(patient_idx):
     rows = []
     case_id = f"C{patient_idx:05d}"
     patient_id = f"P{patient_idx:05d}"
+    severity = random.Random(RANDOM_SEED + patient_idx).choice(
+        ["High", "Moderate", "Low"]
+    )
     # random department / provider
     departments = ["ED", "Triage", "Lab", "Consult", "OR", "Ward"]
     for m, ts in zip(MILESTONES, timestamps):
         row = {
             "case_id": case_id,
             "patient_id": patient_id,
+            "severity": severity,
             "event_name": m,
             "event_timestamp": ts.isoformat(sep=" "),
             "department": random.choice(departments),
@@ -65,7 +70,16 @@ def generate_patient_events(patient_idx):
 
 
 def main():
-    header = ["case_id", "patient_id", "event_name", "event_timestamp", "department", "provider_id"]
+    header = [
+        "case_id",
+        "patient_id",
+        "severity",
+        "event_name",
+        "event_timestamp",
+        "department",
+        "provider_id",
+    ]
+    Path(OUTPUT_PATH).parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_PATH, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=header)
         writer.writeheader()

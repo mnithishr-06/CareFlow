@@ -1,0 +1,4 @@
+cohort,patient_count,median_los_hours,mean_transition_wait_hours,sla_transitions_evaluated,sla_breaches,sla_compliant_transitions,sla_breach_rate_percentage
+High,182,26.633333333333333,4.5349053724053725,364,364,0,100.0
+Low,146,26.950000000000003,4.642694063926941,292,292,0,100.0
+Moderate,172,27.875,4.612613049095607,344,341,3,99.12790697674419
