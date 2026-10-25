@@ -1,0 +1,15 @@
+CareFlow Token-Based Replay Conformance Summary
+
+Reference model: canonical seven-stage clinical pathway
+Method: pm4py token-based replay
+
+Patient cases evaluated: 500
+Fitting cases: 500
+Non-fitting cases: 0
+Trace fit percentage: 100.00%
+Mean trace fitness: 1.0000
+Median trace fitness: 1.0000
+Total missing tokens: 0
+Total remaining tokens: 0
+
+Interpretation: results measure conformance to the configured canonical sequence, not to a separately approved clinical SOP. The source event log is synthetic.
