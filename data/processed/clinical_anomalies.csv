@@ -1,0 +1,1 @@
+case_id,patient_id,anomaly_type,source_stage,target_stage,observed_wait_hours,threshold_hours,details
