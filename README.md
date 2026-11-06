@@ -70,6 +70,7 @@ The CI workflow runs the pytest suite on pushes to the `member` branch.
 ```text
 .
 ├── .github/workflows/ci.yml      # GitHub Actions pytest workflow
+├── main.py                       # Sequential end-to-end pipeline runner
 ├── data/
 │   ├── raw/clinical_events.csv   # Synthetic source event log
 │   └── processed/                # Analytics, SLA, conformance, and audit outputs
@@ -104,6 +105,20 @@ python -m pip install -r requirements.txt
 
 On macOS or Linux, use `python3 -m venv .venv` and `source .venv/bin/activate` instead.
 
+Run the complete pipeline from the repository root:
+
+```powershell
+python main.py
+```
+
+For headless execution without generating process-discovery or simulation charts:
+
+```powershell
+python main.py --skip-viz
+```
+
+Both commands validate the raw event log and run transition analytics, pathway variant and rework discovery, SLA checks, PM4Py process discovery, conformance checking, the discharge-delay simulation, and executive briefing generation. Outputs are written to `data/processed/`, `models/`, `visuals/` (unless skipped), and `reports/`. Use `python main.py --help` to see CLI options.
+
 Run the automated tests:
 
 ```powershell
@@ -116,7 +131,7 @@ Launch the Streamlit dashboard:
 python -m streamlit run src/dashboard_app.py
 ```
 
-The checked-in processed outputs let the dashboard run immediately after dependency installation. To regenerate selected outputs from the raw event log:
+The checked-in processed outputs let the dashboard run immediately after dependency installation. To regenerate individual outputs outside the orchestrated pipeline:
 
 ```powershell
 python src/eda_transitions.py
